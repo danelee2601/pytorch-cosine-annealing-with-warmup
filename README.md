@@ -6,7 +6,7 @@ import torch.nn as nn
 from torch.optim.lr_scheduler import SequentialLR, LambdaLR, CosineAnnealingLR
 
 
-def linear_warmup_cosine_annealingLR(optimizer: torch.optim.Optimizer, max_steps:int, linear_warmup_rate:float=0.1, min_lr:float=1e-5):
+def linear_warmup_cosine_annealingLR(optimizer: torch.optim.Optimizer, max_steps:int, linear_warmup_rate:float=0.1, min_lr:float=1e-6):
     assert linear_warmup_rate > 0. and linear_warmup_rate < 1., '0 < linear_warmup_rate < 1.'
 
     warmup_steps = int(max_steps * linear_warmup_rate)  # n% of max_steps
