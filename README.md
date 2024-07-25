@@ -2,6 +2,7 @@
 
 ```python
 import torch
+import torch.nn as nn
 from torch.optim.lr_scheduler import SequentialLR, LambdaLR, CosineAnnealingLR
 
 
@@ -27,6 +28,7 @@ def linear_warmup_cosine_annealingLR(optimizer: torch.optim.Optimizer, max_steps
     return scheduler
 
 
-opt = torch.optim.AdamW(self.parameters(), lr=1e-3)
+model = nn.Linear(10, 20)
+opt = torch.optim.AdamW(model.parameters(), lr=1e-3)
 scheduler = linear_warmup_cosine_annealingLR(opt, max_steps=1000)
 ```
